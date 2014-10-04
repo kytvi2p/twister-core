@@ -1,0 +1,82 @@
+Source: twister-core
+Section: net
+Priority: optional
+Maintainer: Kill Your TV <killyourtv@i2pmail.org>
+Build-Depends: debhelper (>= 9),
+ autoconf,
+ automake,
+ libboost-chrono-dev,
+ libboost-filesystem-dev,
+ libboost-locale-dev,
+ libboost-program-options-dev,
+ libboost-regex-dev,
+ libboost-system-dev,
+ libboost-thread-dev,
+ libminiupnpc-dev,
+ libdb++-dev,
+ libgeoip-dev,
+ libssl-dev,
+ libtool
+Standards-Version: 3.9.6
+Homepage: http://twister.net.co
+#Vcs-Git: git://anonscm.debian.org/collab-maint/twister-core.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/twister-core.git;a=summary
+
+Package: twister
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: twister-html
+Description: experimental P2P microblogging platform
+ twister is an experimental decentralized P2P microblogging platform leveraging
+ from the free software implementations of Bitcoin and BitTorrent protocols.
+ .
+ User registration and authentication is provided by a bitcoin-like network, so
+ it is completely distributed (does not depend on any central authority).
+ .
+ Post distribution uses kademlia DHT network and bittorrent-like swarms, both
+ are provided by libtorrent.
+ .
+ Both Bitcoin and libtorrent versions included here are highly patched and do
+ not interoperate with existing networks (on purpose).
+ .
+ Warning!  This is alpha software! In other words: this software is probably
+ difficult to compile, it is not feature-complete, it can be unstable, and it
+ may crash causing data loss. You have been warned.
+ .
+ If you choose to continue you probably must fall into one of the following
+ categories:
+ .
+    * You are a developer.
+    * You are an early adopter (who wants to reserve your nickname).
+    * You are a masochist.
+
+Package: twister-dbg
+Priority: extra
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, twister (= ${binary:Version})
+Description: experimental P2P microblogging platform - debugging symbols
+ twister is an experimental decentralized P2P microblogging platform leveraging
+ from the free software implementations of Bitcoin and BitTorrent protocols.
+ .
+ User registration and authentication is provided by a bitcoin-like network, so
+ it is completely distributed (does not depend on any central authority).
+ .
+ Post distribution uses kademlia DHT network and bittorrent-like swarms, both
+ are provided by libtorrent.
+ .
+ Both Bitcoin and libtorrent versions included here are highly patched and do
+ not interoperate with existing networks (on purpose).
+ .
+ Warning!  This is alpha software! In other words: this software is probably
+ difficult to compile, it is not feature-complete, it can be unstable, and it
+ may crash causing data loss. You have been warned.
+ .
+ If you choose to continue you probably must fall into one of the following
+ categories:
+ .
+    * You are a developer.
+    * You are an early adopter (who wants to reserve your nickname).
+    * You are a masochist.
+ .
+ This package contains the symbols needed for debugging.

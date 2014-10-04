@@ -1,0 +1,398 @@
+.TH TWISTER "1" "October 2014" "0.9.26"
+.SH NAME
+twister \- experimental P2P microblogging platform
+.SH SYNOPSIS
+twister [options] <command> [params]
+.TP
+twister [options] help <command> \- Get help for a command
+.SH DESCRIPTION
+This  manual page documents the twister program.
+Twister is an experimental peer-to-peer microblogging
+platform based on Bitcoin and libTorrent technologies.
+Peer-to-peer (P2P) means that there is no central
+authority to moderate posts or messages. In theory this means
+that posts cannot be censored by third parties.
+
+.SH OPTIONS
+.TP
+\fB\-conf=\fR<file>
+Specify configuration file (default: \fI$HOME/.twister/twister.conf\fB)
+.TP
+\fB\-datadir=\fR<dir>
+Specify data directory (default: \fI$HOME/.twister\fR)
+.TP
+\fB\-htmldir\fR
+Specify HTML directory to serve (default: \fI<data>/html\fR)
+.TP
+\fB\-server\fR
+Accept command line and JSON\-RPC commands
+.TP
+\fB\-daemon\fR
+Run in the background as a daemon and accept commands
+.TP
+\fB\-proxy=\fR<ip>
+Connect through socks4 proxy. Set to \fI127.0.0.1\fR
+to connect via Tor.
+.TP
+\fB\-socks=\fR[\fI4\fR|\fI5\fR]
+Select the version of SOCKS proxy to use (default: \fI5\fR)
+.TP
+\fB\-tor=\fR<ip:port>
+Use proxy to reach tor hidden services (default: same as \fB-proxy\fR)
+.TP
+\fB\-dns
+Allow DNS lookups for \fB-addnode\fR, \fB-seednode\fR and \fB-connect\fR
+.TP
+\fB\-port=\fR<port>
+Listen for connections on <port> (default: \fI28333\fR or testnet: \fI18333\fR)
+.TP
+\fB\-dbcache=\fR<n>
+Set database cache size in megabytes (default: \fI25\fR)
+.TP
+\fB\-timeout=\fR<n>
+Specify connection timeout in milliseconds (default: \fI5000\fR)
+
+.TP
+\fB\-seednode=\fR<ip>
+Connect to a node to retrieve peer addresses, and disconnect
+.TP
+\fB\-externalip=\fR<ip>
+Specify your own public address
+.TP
+\fB\-onlynet=\fR<net>
+Only connect to nodes in network <net> (\fIIPv4\fR, \fIIPv6\fR or \fITor\fR)
+.TP
+\fB\-discover\fR
+Discover own IP address (default: \fI1\fR when listening and no \fB-externalip\fR)
+.TP
+\fB\-checkpoints\fR
+Only accept block chain matching built-in checkpoints (default: \fI1\fR)
+.TP
+\fB\-listen\fR
+Accept connections from outside (default: \fI1\fR if no \fB-proxy\fR or \fB-connect\fR)
+.TP
+\fB\-bind=\fR<addr>
+Bind to given address and always listen on it. Use [host]:port notation for IPv6
+.TP
+\fB\-dnsseed\fR
+Find peers using DNS lookup (default: \fI1\fR unless \fB-connect\fR)
+.TP
+\fB\-banscore=\fR<n>
+Threshold for disconnecting misbehaving peers (default: \fI100\fR)
+.TP
+\fB\-bantime=\fR<n>
+Number of seconds to keep misbehaving peers from reconnecting (default: \fI86400\fR)
+.TP
+\fB\-maxreceivebuffer=\fR<n>
+Maximum per-connection receive buffer, <n>*1000 bytes (default: \fI5000\fR)
+.TP
+\fB\-maxsendbuffer=\fR<n>
+Maximum per-connection send buffer, <n>*1000 bytes (default: \fI1000\fR)
+.TP
+\fB\-upnp\fR
+Use UPnP to map the listening port (default: \fI1\fR when listening)
+.TP
+\fB\-addnode=\fR<ip>
+Add a node to connect to
+.TP
+\fB\-connect=\fR<ip>
+Connect only to the specified node
+.TP
+\fB\-testnet\fR
+Use the test network
+.TP
+\fB\-rpcuser=\fR<user>
+Username for JSON\-RPC connections.
+.TP
+\fB\-rpcpassword=\fR<pw>
+Password for JSON\-RPC connections
+.TP
+\fB\-rpcport=\fR<port>
+Listen for JSON\-RPC connections on <port>
+.TP
+\fB\-rpcallowip=\fR<ip>
+Allow JSON\-RPC connections from specified IP address
+.TP
+\fB\-rpcconnect=\fR<ip>
+Send commands to node running on <ip>
+.PP
+SSL options: (see the Bitcoin Wiki for SSL setup instructions)
+.TP
+\fB\-rpcssl\fR=\fI1\fR
+Use OpenSSL (https) for JSON\-RPC connections
+.TP
+\fB\-rpcsslcertificatchainfile=\fR<file.cert>
+Server certificate file (default: server.cert)
+.TP
+
+\fB\-rpcsslprivatekeyfile=\fR<file.pem>
+Server private key (default: server.pem)
+.TP
+\fB\-rpcsslciphers=\fR<ciphers>
+Acceptable ciphers (default: TLSv1+HIGH:\:!SSLv2:\:!aNULL:\:!eNULL:\:!AH:\:!3DES:\:@STRENGTH)
+.SH COMMANDS
+.TP
+\fBadddnsseed <seeder>\fR
+Add a different DNS <seeder> to obtain node list from.
+.TP
+\fBaddnode <node> <add|remove|onetry>\fR
+Attempts add or remove <node> from the addnode list or try a connection to <node> once.
+.TP
+\fBbackupwallet 'destination'\fR
+Safely copies *wallet.dat* to 'destination', which can be a directory or a path with filename.
+.TP
+\fBcreaterawtransaction <username> <pubKey> [signedByOldKey]\fR
+Create a transaction registering a new user
+.br
+Returns hex-encoded raw transaction.
+.br
+It is not stored in the wallet or transmitted to the network.
+.TP
+\fBcreatewalletuser <username> [replacekey]\fR
+Create a new key pair for user and add it to wallet
+.br
+Use sendnewusertransaction to publish it to the network.
+.br
+Returns key secret (keep it safe)
+.TP
+\fBdecoderawtransaction <hex string>\fR
+Return a JSON object representing the serialized, hex-encoded transaction.
+.TP
+\fBdhtget <username> <resource> <s(ingle)/m(ulti)> [timeout_ms] [timeout_multi_ms] [min_multi]\fR
+Get resource from dht network
+.TP
+\fBdhtput <username> <resource> <s(ingle)/m(ulti)> <value> <sig_user> <seq>\fR
+Store resource in dht network
+.TP
+\fBdumpprivkey <username>\fR
+Reveals the private key corresponding to <username>.
+.TP
+\fBdumppubkey <username>\fR
+Returns the public key corresponding to <username> (empty if user doesn't exist)
+.TP
+\fBdumpwallet <filename>\fR
+Dumps all wallet keys in a human-readable format.
+.TP
+\fBencryptwallet <passphrase>\fR
+Encrypts the wallet with <passphrase>.
+.TP
+\fBfollow <username> [follow_username1,follow_username2,...]\fR
+start following users
+.TP
+\fBgetaddednodeinfo <dns> [node]\fR
+Returns information about the given added node, or all added nodes
+(note that onetry addnodes are not listed here).
+.br
+If dns is false, only a list of added nodes will be provided,
+otherwise connected information will also be available.
+.TP
+\fBgetbestblockhash\fR
+Returns the hash of the best (tip) block in the longest block chain.
+.TP
+\fBgetblock <hash> [verbose=true]\fR
+If verbose is false, returns a string that is serialized, hex-encoded data for block <hash>.
+.br
+If verbose is true, returns an Object with information about block <hash>.
+.TP
+\fBgetblockcount\fR
+Returns the number of blocks in the longest block chain.
+.TP
+\fBgetblockhash <index>\fR
+Returns hash of block in best-block-chain at <index>
+.TP
+\fBgetblocktemplate [params]\fR
+Returns data needed to construct a block to work on:
+  "version" : block version
+  "previousblockhash" : hash of current highest block
+  "transactions" : contents of non-coinbase transactions that should be included in the next block
+  "coinbaseaux" : data that should be included in coinbase
+  "coinbasevalue" : maximum allowable input to coinbase transaction, including the generation award and transaction fees
+  "target" : hash target
+  "mintime" : minimum timestamp appropriate for next block
+  "curtime" : current timestamp
+  "mutable" : list of ways the block template may be changed
+  "noncerange" : range of valid nonces
+  "sigoplimit" : limit of sigops in blocks
+  "sizelimit" : limit of block size
+  "bits" : compressed target of next block
+  "height" : height of the next block
+See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
+.TP
+\fBgetconnectioncount\fR
+Returns the number of connections to other nodes.
+.TP
+\fBgetdifficulty\fR
+Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+.TP
+\fBgetdirectmsgs <localuser> <count_per_user> '[{"username":username,"max_id":max_id,"since_id":since_id},...]'\fR
+get (locally stored) decrypted direct messages sent/received by user <localuser>
+.br
+max_id and since_id may be omited. up to <count_per_user> are returned for each remote user.
+.TP
+\fBgetfollowing <username>\fR
+get list of users we follow
+.TP
+\fBgetgenerate\fR
+Returns boolean true if server is trying to generate bitcoins, false otherwise.
+.TP
+\fBsetgenerate 'generate' ['genproclimit']\fR
+Generation is limited to ['genproclimit'] processors, \-1 is unlimited.
+.TP
+\fBgethashespersec\fR
+Returns a recent hashes per second performance measurement while generating.
+.TP
+\fBgetinfo\fR
+Returns an object containing server information.
+.TP
+\fBgetlasthave <username>\fR
+get last 'have' (higher post number) of each user user we follow
+.TP
+\fBgetlastsoftcheckpoint\fR
+Returns votes of last soft checkpoint
+.TP
+\fBgetmininginfo\fR
+Returns an object containing mining-related information.
+.TP
+\fBgetnumpieces <username>\fR
+get number of posts already downloaded for each user user we follow
+.TP
+\fBgetpeerinfo\fR
+Returns data about each connected network node
+.TP
+\fBgetposts <count> '[{"username":username,"max_id":max_id,"since_id":since_id},...]' [flags]\fR
+get posts from users
+.br
+max_id and since_id may be omited
+.TP
+\fBgetrawmempool\fR
+Returns all transaction ids in memory pool.
+.TP
+\fBgetrawtransaction <username> [verbose=0]\fR
+If verbose=0, returns a string that is
+serialized, hex-encoded data for <txid>.
+.br
+If verbose is non-zero, returns an Object
+with information about transaction.
+.TP
+\fBgetspammsg\fR
+get spam message attached to generated blocks
+.TP
+\fBsetspammsg <username> <msg>\fR
+Set spam message attached to generated blocks
+.TP
+\fBgetspamposts <count> [max_id] [since_id]\fR
+get spam posts from blockchain
+.br
+max_id and since_id may be omited (or -1)
+.TP
+\fBgettransaction 'txid'\fR
+Returns information about a specific transaction, given hexadecimal transaction ID.
+.TP
+\fBgettrendinghashtags <count>\fR
+obtain list of trending hashtags
+.TP
+\fBgetwork [data]\fR
+If [data] is not specified, returns formatted hash data to work on:
+  "midstate" : precomputed hash state after hashing the first half of the data (DEPRECATED)
+  "data" : block data
+  "hash1" : formatted hash buffer for second hash (DEPRECATED)
+  "target" : little endian hash target
+If [data] is specified, tries to solve the block and returns true if it was successful
+.TP
+\fBhelp 'command'\fR
+List commands, or get help for a command.
+.TP
+\fBimportprivkey <bitcoinprivkey> <username> [rescan=true] [allow_new_user=false]\fR
+Adds a private key (as returned by dumpprivkey) to your wallet.
+.TP
+\fBimportwallet <filename>\fR
+Imports keys from a wallet dump file (see dumpwallet).
+.TP
+\fBlistsinceblock [blockhash] [target-confirmations]\fR
+Get all transactions in blocks since block [blockhash], or all transactions if omitted
+.TP
+\fBlisttransactions [account] [count=10] [from=0]\fR
+Returns up to [count] most recent transactions skipping the first [from] transactions for account [account].
+.TP
+\fBlistusernamespartial <username_starts_with> <count> [exact_match=false]\fR
+get list of usernames starting with
+.TP
+\fBlistwalletusers\fR
+Returns the list of wallet usernames.
+.TP
+\fBnewdirectmsg <from> <k> <to> <msg> [copy_self=false]\fR
+Post a new dm to swarm.
+.br
+if copy_self true will increase k twice (two DMs)
+.TP
+\fBnewpostmsg <username> <k> <msg> [reply_n] [reply_k]\fR
+Post a new message to swarm
+.TP
+\fBnewrtmsg <username> <k> <rt_v_object>\fR
+Post a new RT to swarm
+.TP
+\fBrecheckusertorrent <username>\fR
+recheck all posts in a given torrent. this may be useful if
+post validation rules became stricter
+.TP
+\fBrescandirectmsgs <username>\fR
+rescan all streams of users we follow for new and old directmessages
+.TP
+\fBsearch <scope> <text> <count> ['{"username":username,"mode":"exact"|"all"|"any","case":"sensitive"|"insensitive","agemin":agemin,"agemax":agemin}']\fR
+search text in available data
+.br
+<scope> is data area: messages, directmsgs, profiles, users, hashtags
+.br
+<text> is a phrase to search
+.br
+up to <count> entries are returned
+.br
+<username> in messages scope is optional and allows to search in username's messages only
+.br
+<username> in directmsgs scope is required and sets whose conversation to search
+.br
+"mode" and "case" are search mode options
+.br
+"agemin" and "agemax" (days) are message date filter
+.br
+"mode", "case", "agemin", and "agemax" are optional
+.TP
+\fBsendnewusertransaction <username>\fR
+Send a transaction registering a previously created new user
+using createwalletuser or imported to the wallet
+.br
+Submits raw transaction (serialized, hex-encoded) to local node and network.
+.TP
+\fBsendrawtransaction <hex string>\fR
+Submits raw transaction (serialized, hex-encoded) to local node and network.
+.TP
+\fBsignmessage <username> <message>\fR
+Sign a message with the private key of an address
+.TP
+\fBstop\fR
+Stop Twister server.
+.TP
+\fBsubmitblock <hex data> [optional-params-obj]\fR
+[optional-params-obj] parameter is currently ignored.
+.br
+Attempts to submit new block to network.
+.br
+See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
+.TP
+\fBtorrentstatus <username>\fR
+report torrent status
+.TP
+\fBunfollow <username> [unfollow_username1,unfollow_username2,...]\fR
+stop following users
+.TP
+\fBverifychain [check level] [num blocks]\fR
+Verifies blockchain database.
+.TP
+\fBverifymessage <username> <signature> <message>\fR
+Verify a signed message
+.SH "SEE ALSO"
+twister.conf(5)
+.SH AUTHOR
+This manual page was written by kytv <killyourtv@i2pmail.org> for the Debian
+system (but may be used by others). Permission is granted to copy, distribute
+and/or modify this document under the terms of the MIT License.

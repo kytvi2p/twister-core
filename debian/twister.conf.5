@@ -1,0 +1,137 @@
+.TH TWISTER.CONF "5" "October 2014" "0.9.26"
+.SH NAME
+twister.conf \- twister configuration file
+.SH SYNOPSIS
+All  command-line  options  (except for '\fB\-datadir\fR' and '\fB\-conf\fR') may be
+specified in a configuration file, and all configuration file options may also
+be specified on the command line. Command-line options override values set in
+the configuration file.
+
+The configuration file is a list of 'setting=value' pairs, one per line, with optional comments starting with the '#' character.
+
+By default, \fBtwister\fR(1) will look for a file named  \fBtwister.conf\fR(5) in the
+twister data directory, but both the data directory and the configuration file
+path may be changed using the '\fB\-datadir\fR' and '\fB\-conf\fR' command-line arguments.
+
+.SH LOCATION
+twister.conf should be located in $HOME/.twister
+
+.SH INTERFACE SETTING
+.TP
+\fBhtmldir\fR
+Specify HTML directory to serve (default: \fI<data>/html\fR)
+
+.SH NETWORK-RELATED SETTINGS
+.TP
+\fBproxy=\fR<ip>
+Connect through socks4 proxy. Set to \fI127.0.0.1\fR
+to connect via Tor.
+.TP
+\fBsocks=\fR[\fI4\fR|\fI5\fR]
+Select the version of SOCKS proxy to use (default: \fI5\fR)
+.TP
+\fBtor=\fR<ip:port>
+Use proxy to reach tor hidden services (default: same as \fBproxy\fR)
+.TP
+\fBdns
+Allow DNS lookups for \fBaddnode\fR, \fBseednode\fR and \fBconnect\fR
+.TP
+\fBport=\fR<port>
+Listen for connections on <port> (default: \fI28333\fR or testnet: \fI18333\fR)
+.TP
+\fBdbcache=\fR<n>
+Set database cache size in megabytes (default: \fI25\fR)
+.TP
+\fBtimeout=\fR<n>
+Specify connection timeout in milliseconds (default: \fI5000\fR)
+.TP
+\fBseednode=\fR<ip>
+Connect to a node to retrieve peer addresses, and disconnect
+.TP
+\fBexternalip=\fR<ip>
+Specify your own public address
+.TP
+\fBonlynet=\fR<net>
+Only connect to nodes in network <net> (\fIIPv4\fR, \fIIPv6\fR or \fITor\fR)
+.TP
+\fBdiscover\fR
+Discover own IP address (default: \fI1\fR when listening and no \fBexternalip\fR)
+.TP
+\fBcheckpoints\fR
+Only accept block chain matching built-in checkpoints (default: \fI1\fR)
+.TP
+\fBlisten\fR
+Accept connections from outside (default: \fI1\fR if no \fBproxy\fR or \fBconnect\fR)
+.TP
+\fBbind=\fR<addr>
+Bind to given address and always listen on it. Use [host]:port notation for IPv6
+.TP
+\fBdnsseed\fR
+Find peers using DNS lookup (default: \fI1\fR unless \fBconnect\fR)
+.TP
+\fBbanscore=\fR<n>
+Threshold for disconnecting misbehaving peers (default: \fI100\fR)
+.TP
+\fBbantime=\fR<n>
+Number of seconds to keep misbehaving peers from reconnecting (default: \fI86400\fR)
+.TP
+\fBmaxreceivebuffer=\fR<n>
+Maximum per-connection receive buffer, <n>*1000 bytes (default: \fI5000\fR)
+.TP
+\fBmaxsendbuffer=\fR<n>
+Maximum per-connection send buffer, <n>*1000 bytes (default: \fI1000\fR)
+.TP
+\fBupnp\fR
+Use UPnP to map the listening port (default: \fI1\fR when listening)
+.TP
+\fBaddnode=\fR<ip>
+Add a node to connect to
+.TP
+\fBconnect=\fR<ip>
+Connect only to the specified node
+.TP
+\fBtestnet\fR
+Use the test network
+
+.SH JSON-RPC OPTIONS
+.TP
+\fBserver=\fR[\fI1\fR|\fI0\fR]
+Accept command line and JSON\-RPC commands
+.TP
+\fBdaemon=\fR[\fI1\fR|\fI0\fR]
+Run in the background as a daemon and accept commands
+.TP
+\fBrpcuser=\fR<user>
+Username for JSON\-RPC connections.
+.TP
+\fBrpcpassword=\fR<pw>
+Password for JSON\-RPC connections
+.TP
+\fBrpcport=\fR<port>
+Listen for JSON\-RPC connections on <port>
+.TP
+\fBrpcallowip=\fR<ip>
+Allow JSON\-RPC connections from specified IP address
+.TP
+\fBrpcconnect=\fR<ip>
+Send commands to node running on <ip>
+.PP
+SSL options: (see the Bitcoin Wiki for SSL setup instructions)
+.TP
+\fBrpcssl\fR=\fI1\fR
+Use OpenSSL (https) for JSON\-RPC connections
+.TP
+\fBrpcsslcertificatchainfile=\fR<file.cert>
+Server certificate file (default: server.cert)
+.TP
+\fBrpcsslprivatekeyfile=\fR<file.pem>
+Server private key (default: server.pem)
+.TP
+\fBrpcsslciphers=\fR<ciphers>
+Acceptable ciphers (default: TLSv1+HIGH:\:!SSLv2:\:!aNULL:\:!eNULL:\:!AH:\:!3DES:\:@STRENGTH)
+.SH "SEE ALSO"
+twister(1)
+.SH AUTHOR
+This manual page was written by kytv <killyourtv@i2pmail.org> for the Debian
+system (but may be used by others). Permission is granted to copy, distribute
+and/or modify this document under the terms of the MIT License.
