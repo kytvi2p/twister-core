@@ -24,8 +24,8 @@ server=1
 EOF
     if [ -d /usr/share/twister-html ]; then
         printf 'htmldir=/usr/share/twister-html\n' >> $cfgfile
+        printf 'Twister should be accessible at http://user:pwd@127.0.0.1:28332\n'
+        printf '\n(This message will only be shown once)\n'
     fi
-    printf 'Twister should be accessible at http://user:pwd@127.0.0.1:28332\n'
-    printf '\n(This message will only be shown once)\n'
 fi
 exec /usr/lib/twister/twisterd "$@"
