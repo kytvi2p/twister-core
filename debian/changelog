@@ -1,3 +1,9 @@
+twister-core (0.9.26.0+git20141016.94d29f8-1~precise+1) precise; urgency=medium
+
+  * Backport to precise
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Wed, 22 Oct 2014 11:31:56 +0000
+
 twister-core (0.9.26.0+git20141016.94d29f8-1) unstable; urgency=low
 
   * Initial release
