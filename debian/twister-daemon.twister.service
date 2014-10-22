@@ -1,0 +1,16 @@
+[Unit]
+Description=experimental microblogging platform
+After=network.target
+
+[Service]
+Type=forking
+Restart=on-abnormal
+UMask=0002
+PIDFile=/run/twister/twisterd.pid
+User=twister
+ExecStart=/usr/lib/twister/twisterd -conf=/etc/twister.conf -pid=/run/twister/twisterd.pid -datadir=/var/lib/twister -htmldir=/usr/share/twister-html -daemon=1 -server=1
+ExecStop=/usr/lib/twister/twisterd stop
+SuccessExitStatus=1 2 8 SIGKILL 87
+
+[Install]
+WantedBy=multi-user.target
