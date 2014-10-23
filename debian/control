@@ -20,8 +20,8 @@ Build-Depends: debhelper (>= 9),
  libtool
 Standards-Version: 3.9.6
 Homepage: http://twister.net.co
-#Vcs-Git: git://anonscm.debian.org/collab-maint/twister-core.git
-#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/twister-core.git;a=summary
+Vcs-Git: git://git.killyourtv.i2p/twister-core.git
+Vcs-Browser: http://killyourtv.i2p/gitweb/?p=twister-core.git
 
 Package: twister
 Architecture: any
