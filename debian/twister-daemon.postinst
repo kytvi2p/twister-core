@@ -1,0 +1,39 @@
+#!/bin/sh
+
+set -e
+
+HOME=/var/lib/twister
+SYSUSER=twister
+
+case "$1" in
+    configure|reconfigure)
+    # Older versions of adduser created the home directory.
+    # The version of adduser in Debian unstable does not.
+    # Create user and group as a system user.
+    if getent passwd ${SYSUSER} > /dev/null 2>&1 ; then
+        groupadd -f ${SYSUSER} || true
+        usermod -c "Twister Daemon" -d ${HOME} -g ${SYSUSER} -s "/bin/false" \
+            ${SYSUSER} -e 1 > /dev/null 2>&1 || true
+    else
+        adduser --system --quiet --group --home ${HOME} ${SYSUSER} > /dev/null 2>&1
+    fi
+
+    [ -d ${HOME} ] || mkdir -m0700 ${HOME}
+    chown -f -R ${SYSUSER}:${SYSUSER} ${HOME}
+    chown ${SYSUSER}:${SYSUSER} /etc/twister.conf
+    chmod 600 /etc/twister.conf
+
+;;
+abort-upgrade|abort-remove|abort-deconfigure)
+    echo "Aborting upgrade"
+    exit 0
+    ;;
+*)
+        echo "postinst called with unknown argument \`$1'" >&2
+                exit 0
+                ;;
+esac
+
+#DEBHELPER#
+
+exit 0
