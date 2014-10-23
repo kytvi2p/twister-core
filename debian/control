@@ -5,7 +5,7 @@ Maintainer: Kill Your TV <killyourtv@i2pmail.org>
 Build-Depends: debhelper (>= 9),
  autoconf,
  automake,
- dh-systemd,
+# dh-systemd,
  libboost-chrono-dev,
  libboost-filesystem-dev,
  libboost-locale-dev,
