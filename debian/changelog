@@ -1,3 +1,9 @@
+twister-core (0.9.26.0+git20141016.94d29f8-2ubuntu1) trusty; urgency=medium
+
+  * Building for Trusty
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Thu, 23 Oct 2014 02:12:51 +0000
+
 twister-core (0.9.26.0+git20141016.94d29f8-2) unstable; urgency=medium
 
   * Addition of twister-daemon package to automatically set up twister to run
