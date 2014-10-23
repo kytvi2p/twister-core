@@ -19,7 +19,8 @@ include /usr/share/dpkg/default.mk
 
 # main packaging script based on dh7 syntax
 %:
-	dh $@  --parallel --with systemd
+	dh $@  --parallel
+	#dh $@  --parallel --with systemd
 
 override_dh_auto_configure:
 	./bootstrap.sh --enable-geoip --with-libiconv --with-libgeoip --prefix=/usr
