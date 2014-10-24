@@ -1,3 +1,10 @@
+twister-core (0.9.26.0+git20141016.94d29f8-3) unstable; urgency=medium
+
+  * Don't create $HOME/.twister for daemon user
+  * Enable DB_LOG_AUTOREMOVE for twister-daemon
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 24 Oct 2014 14:29:41 +0000
+
 twister-core (0.9.26.0+git20141016.94d29f8-2) unstable; urgency=medium
 
   * Addition of twister-daemon package to automatically set up twister to run
