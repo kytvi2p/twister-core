@@ -15,7 +15,7 @@ cfgfile="$basedir/twister.conf"
 [ -e "$dbfile" ] || echo 'set_flags DB_LOG_AUTOREMOVE' > "$dbfile"
 
 # create default twister config and set up web interface
-if [ ! -e $cfgfile ]; then
+if [ ! -e $cfgfile ] && [ ! $(id -nu) = 'twister' ]; then
     cat > $cfgfile << EOF
 rpcuser=user
 rpcpassword=pwd

@@ -4,6 +4,7 @@ set -e
 
 HOME=/var/lib/twister
 SYSUSER=twister
+dbfile=$HOME/DB_CONFIG
 
 case "$1" in
     configure|reconfigure)
@@ -22,6 +23,8 @@ case "$1" in
     chown -f -R ${SYSUSER}:${SYSUSER} ${HOME}
     chown ${SYSUSER}:${SYSUSER} /etc/twister.conf
     chmod 600 /etc/twister.conf
+    # twister does not clean up DB log files by default
+    [ -e "$dbfile" ] || echo 'set_flags DB_LOG_AUTOREMOVE' > "$dbfile"
 
 ;;
 abort-upgrade|abort-remove|abort-deconfigure)
