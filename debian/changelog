@@ -1,7 +1,8 @@
-twister-core (0.9.26.0+git20141030.69ad1d7-1) unstable; urgency=medium
+twister-core (0.9.26.0+git20141030.82f3054-1) unstable; urgency=medium
 
   [ Denis Ryabov ]
   * Fix Issue #285
+  * Update twister.cpp
 
   [ Kill Your TV ]
   * New upstream git snapshot
