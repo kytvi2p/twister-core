@@ -1,3 +1,14 @@
+twister-core (0.9.26.0+git20141030.82f3054-1) unstable; urgency=medium
+
+  [ Denis Ryabov ]
+  * Fix Issue #285
+  * Update twister.cpp
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Thu, 30 Oct 2014 10:15:58 +0000
+
 twister-core (0.9.26.0+git20141016.94d29f8-3~precise+1) precise; urgency=medium
 
   * Backport to Precise
