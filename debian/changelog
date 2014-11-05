@@ -1,3 +1,13 @@
+twister-core (0.9.26.0+git20141104.dd9c05e-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * updating softcheckpoint voters
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Tue, 04 Nov 2014 22:06:57 +0000
+
 twister-core (0.9.26.0+git20141030.82f3054-1~deb7u+1) stable; urgency=medium
 
   * Backport to Wheezy
