@@ -1,3 +1,24 @@
+twister-core (0.9.26.0+git20141105.bd49c9f-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * more voters
+  * another dns seeder, thanks!
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Wed, 05 Nov 2014 20:28:33 +0000
+
+twister-core (0.9.26.0+git20141104.dd9c05e-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * updating softcheckpoint voters
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Tue, 04 Nov 2014 22:06:57 +0000
+
 twister-core (0.9.26.0+git20141030.82f3054-1ubuntu1) trusty; urgency=medium
 
   * Building for Trusty
