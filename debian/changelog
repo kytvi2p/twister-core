@@ -1,3 +1,9 @@
+twister-core (0.9.26.0+git20141111.10eb6ab-1~deb7u+1) stable; urgency=medium
+
+  * Backport to Wheezy
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Tue, 11 Nov 2014 23:58:14 +0000
+
 twister-core (0.9.26.0+git20141111.10eb6ab-1) unstable; urgency=medium
 
   [ Denis Ryabov ]
@@ -16,12 +22,6 @@ twister-core (0.9.26.0+git20141107.5e85af7-2) unstable; urgency=medium
     on twister
 
  -- Kill Your TV <killyourtv@i2pmail.org>  Mon, 10 Nov 2014 19:16:41 +0000
-
-twister-core (0.9.26.0+git20141107.5e85af7-1~deb7u+1) stable; urgency=medium
-
-  * Backport to Wheezy
-
- -- Kill Your TV <killyourtv@i2pmail.org>  Sat, 08 Nov 2014 15:19:33 +0000
 
 twister-core (0.9.26.0+git20141107.5e85af7-1) unstable; urgency=medium
 
