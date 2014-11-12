@@ -22,7 +22,7 @@ include /usr/share/dpkg/default.mk
 	dh $@  --parallel --with systemd
 
 override_dh_auto_configure:
-	./bootstrap.sh --enable-geoip --with-libiconv --with-libgeoip --prefix=/usr
+	./bootstrap.sh --enable-geoip --with-libiconv --with-libgeoip --enable-invariant-checks=no --prefix=/usr
 
 override_dh_clean:
 	rm -rf build-aux
