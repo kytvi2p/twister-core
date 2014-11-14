@@ -1,3 +1,14 @@
+twister-core (0.9.26.0+git20141113.5379d2a-1) unstable; urgency=medium
+
+  [ Denis Ryabov ]
+  * add libtorrent's session status data to getinfo output
+  * fix type
+
+  [ Kill Your TV ]
+  * New upsream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 14 Nov 2014 00:18:28 +0000
+
 twister-core (0.9.26.0+git20141111.10eb6ab-1ubuntu1) trusty; urgency=medium
 
   * Building for Trusty
