@@ -1,3 +1,9 @@
+twister-core (0.9.26.0+git20141113.5379d2a-1ubuntu1) trusty; urgency=medium
+
+  * Building for Trusty
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 14 Nov 2014 15:26:57 +0000
+
 twister-core (0.9.26.0+git20141113.5379d2a-1) unstable; urgency=medium
 
   [ Denis Ryabov ]
@@ -8,12 +14,6 @@ twister-core (0.9.26.0+git20141113.5379d2a-1) unstable; urgency=medium
   * New upsream git snapshot
 
  -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 14 Nov 2014 00:18:28 +0000
-
-twister-core (0.9.26.0+git20141111.10eb6ab-1ubuntu1) trusty; urgency=medium
-
-  * Building for Trusty
-
- -- Kill Your TV <killyourtv@i2pmail.org>  Wed, 12 Nov 2014 00:01:36 +0000
 
 twister-core (0.9.26.0+git20141111.10eb6ab-1) unstable; urgency=medium
 
