@@ -1,3 +1,9 @@
+twister-core (0.9.26.0+git20141128.r4894-1ubuntu1) utopic; urgency=medium
+
+  * Building for Utopic
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 28 Nov 2014 23:31:54 +0000
+
 twister-core (0.9.26.0+git20141128.r4894-1) unstable; urgency=medium
 
   [ Denis Ryabov ]
