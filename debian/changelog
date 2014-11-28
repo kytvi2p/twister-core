@@ -1,3 +1,17 @@
+twister-core (0.9.26.0+git20141128.r4894-1) unstable; urgency=medium
+
+  [ Denis Ryabov ]
+  * Support double hashtags (and double mentions) in newpostmsg
+  * Update twister.cpp
+  * Process "Connection: close" header in non-JSON requests
+  * fix asserts to support NDEBUG
+  * enable NDEBUG define
+
+  [ Kill Your TV ]
+  * New usptream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 28 Nov 2014 21:05:35 +0000
+
 twister-core (0.9.26.0+git20141113.5379d2a-1) unstable; urgency=medium
 
   [ Denis Ryabov ]
