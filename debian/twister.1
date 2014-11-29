@@ -250,6 +250,11 @@ get last 'have' (higher post number) of each user user we follow
 \fBgetlastsoftcheckpoint\fR
 Returns votes of last soft checkpoint
 .TP
+\fBgetmentions <localuser> <count> '[{"max_id":max_id,"since_id":since_id}]'\fR
+get (locally stored) mentions to user <localuser> by users followed.
+(use 'dhtget user mention m' for non-followed mentions)
+max_id and since_id may be omited. up to <count> posts are returned.
+.TP
 \fBgetmininginfo\fR
 Returns an object containing mining-related information.
 .TP
