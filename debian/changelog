@@ -1,3 +1,16 @@
+twister-core (0.9.27.0-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * 0.9.27 new 'getmentions' api. return known mentions from users we follow.
+    never miss a mention from your friends anymore! :-) (twister-html support
+    pending)
+
+  [ Kill Your TV ]
+  * New upstream release
+  * Update debian/twister.1 to describe the `getmentions` command
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Sat, 29 Nov 2014 16:09:04 +0000
+
 twister-core (0.9.26.0+git20141128.r4894-1ubuntu1) utopic; urgency=medium
 
   * Building for Utopic
