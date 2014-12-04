@@ -1,3 +1,18 @@
+twister-core (0.9.28.0-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * 0.9.28: better enforcement of DHT upload rate limit for non-locally
+    generated requests. the limit applies to: DHT replies, refreshes of stored
+    items, checking for status/tracker and proxy server. local requests (eg.
+    dhtgets from the UI) are excluded from this limit, so user experience is
+    not affected. in other words: we limit only the band contributed back to
+    twister network for maintenance tasks.
+
+  [ Kill Your TV ]
+  * New upstream release
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Thu, 04 Dec 2014 23:34:50 +0000
+
 twister-core (0.9.27.0-1) unstable; urgency=medium
 
   [ Miguel Freitas ]
