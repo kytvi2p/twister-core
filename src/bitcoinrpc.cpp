@@ -233,6 +233,7 @@ static const CRPCCommand vRPCCommands[] =
     { "listsinceblock",         &listsinceblock,         false,     false,      false },
     { "dumpprivkey",            &dumpprivkey,            true,      false,      false },
     { "dumppubkey",             &dumppubkey,             false,     false,      false },
+    { "testvector",             &testvector,             false,     false,      false },
     { "dumpwallet",             &dumpwallet,             true,      false,      false },
     { "importprivkey",          &importprivkey,          false,     false,      false },
     { "importwallet",           &importwallet,           false,     false,      false },
@@ -245,6 +246,7 @@ static const CRPCCommand vRPCCommands[] =
     { "getlastsoftcheckpoint",  &getlastsoftcheckpoint,  true,      false,      false },
     // twister dht network
     { "dhtput",                 &dhtput,                 false,     true,       false },
+    { "dhtputraw",              &dhtputraw,              false,     true,       true },
     { "dhtget",                 &dhtget,                 false,     true,       true },
     { "newpostmsg",             &newpostmsg,             false,     true,       false },
     { "newdirectmsg",           &newdirectmsg,           false,     true,       false },
