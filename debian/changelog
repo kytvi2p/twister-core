@@ -1,3 +1,35 @@
+twister-core (0.9.28.0+git20150310.r4934-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * different id names per platform
+
+  [ Ben Holden-Crowther ]
+  * Updated license date
+
+  [ Miguel Freitas ]
+  * be more tolerant to detect outdated blockchain. the main problem with
+    running libtorrent with an outdated blockchain is to refuse posts that are
+    signed by new users. given this is only a temporary state (and most of
+    users are older than a day anyway) it is better to be more tolerant
+    instead of freezing up everything.
+  * fix mistake reported by Tim Nicholson
+  * fix #309
+
+  [ Michael.X ]
+  * fix memory size bug
+
+  [ Dmitry Marakasov ]
+  * Actually include sys/endian.h for le32enc/le32dec
+  * Don't return NULL as bool
+
+  [ sandakersmann ]
+  * Added line break and "Core" to README.md
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 27 Mar 2015 16:01:01 +0000
+
 twister-core (0.9.28.0+git20141217.r4917-1) unstable; urgency=medium
 
   [ Miguel Freitas ]
