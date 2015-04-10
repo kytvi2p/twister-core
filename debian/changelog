@@ -1,3 +1,30 @@
+twister-core (0.9.29.0-1) unstable; urgency=medium
+
+  [ Bernard Spil ]
+  * Fix build with LibreSSL
+
+  [ Chuck LeDuc Diaz ]
+  * Use cppcheck
+  * fix cppcheck syntax
+  * organize .gitignore
+  * multithread cppcheck
+
+  [ Miguel Freitas ]
+  * report the two local/external addresses we know about (which should be the
+    same) in 'getinfo' rpc. i believe this should help debugging dht
+    connectivity problems when we change networks, or router gets a new ip
+    etc.
+  * update ip_voter from upstream to get this nice maybe_rotate method. now
+    the new ip can finally gain over a well voted old ip.
+  * update registration network with the new external IP we learned from DHT
+    peers
+  * 0.9.29
+
+  [ Kill Your TV ]
+  * New upstream release
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 10 Apr 2015 22:24:34 +0000
+
 twister-core (0.9.28.0+git20150310.r4934-1) unstable; urgency=medium
 
   [ Miguel Freitas ]
