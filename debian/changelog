@@ -1,3 +1,99 @@
+twister-core (0.9.29.0-1) unstable; urgency=medium
+
+  [ Bernard Spil ]
+  * Fix build with LibreSSL
+
+  [ Chuck LeDuc Diaz ]
+  * Use cppcheck
+  * fix cppcheck syntax
+  * organize .gitignore
+  * multithread cppcheck
+
+  [ Miguel Freitas ]
+  * report the two local/external addresses we know about (which should be the
+    same) in 'getinfo' rpc. i believe this should help debugging dht
+    connectivity problems when we change networks, or router gets a new ip
+    etc.
+  * update ip_voter from upstream to get this nice maybe_rotate method. now
+    the new ip can finally gain over a well voted old ip.
+  * update registration network with the new external IP we learned from DHT
+    peers
+  * 0.9.29
+
+  [ Kill Your TV ]
+  * New upstream release
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 10 Apr 2015 22:24:34 +0000
+
+twister-core (0.9.28.0+git20150310.r4934-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * different id names per platform
+
+  [ Ben Holden-Crowther ]
+  * Updated license date
+
+  [ Miguel Freitas ]
+  * be more tolerant to detect outdated blockchain. the main problem with
+    running libtorrent with an outdated blockchain is to refuse posts that are
+    signed by new users. given this is only a temporary state (and most of
+    users are older than a day anyway) it is better to be more tolerant
+    instead of freezing up everything.
+  * fix mistake reported by Tim Nicholson
+  * fix #309
+
+  [ Michael.X ]
+  * fix memory size bug
+
+  [ Dmitry Marakasov ]
+  * Actually include sys/endian.h for le32enc/le32dec
+  * Don't return NULL as bool
+
+  [ sandakersmann ]
+  * Added line break and "Core" to README.md
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Fri, 27 Mar 2015 16:01:01 +0000
+
+twister-core (0.9.28.0+git20141217.r4917-1) unstable; urgency=medium
+
+  [ Miguel Freitas ]
+  * params update
+  * new dns seeder
+  * fix compilation for android which uses boost::posix_time::ptime
+    (TORRENT_USE_BOOST_DATE_TIME)
+  * fix strange android compilation failure (The file boost/detail/endian.hpp
+    needs to be set up for your CPU type)
+
+  [ FoundationAwesome ]
+  * Update building-on-ubuntu-debian.md
+
+  [ Miguel Freitas ]
+  * rpc for development only - generates crypto testvector * fix #303
+  * new rpc dhtputraw
+  * very simple wrapper for starting twisterd and launching the web browser
+    generates a default rpcpassword, twister.conf file etc. may also setup
+    automatic twisterd script on desktop login.
+  * remove bitcoin icons, add twister icons
+  * sample desktop files
+  * more category definitions to please opensuse
+  * detect system-wide twister-html
+  * fix for picky compiler complaining about no return
+  * create config dir
+  * do not depend on tkinter for cmd line usage (only GUI require it)
+  * install twister-control script
+  * install pixmaps (icons) and desktop files
+
+  [ Johannes Schwab ]
+  * Force unsing python2
+
+  [ Kill Your TV ]
+  * New upstream git snapshot
+
+ -- Kill Your TV <killyourtv@i2pmail.org>  Thu, 01 Jan 2015 16:03:36 +0000
+
 twister-core (0.9.28.0-1ubuntu1) utopic; urgency=medium
 
   * Building for Utopic
