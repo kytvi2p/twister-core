@@ -150,6 +150,7 @@ extern json_spirit::Value getaddednodeinfo(const json_spirit::Array& params, boo
 
 extern json_spirit::Value dumpprivkey(const json_spirit::Array& params, bool fHelp); // in rpcdump.cpp
 extern json_spirit::Value dumppubkey(const json_spirit::Array& params, bool fHelp); // in rpcdump.cpp
+extern json_spirit::Value testvector(const json_spirit::Array& params, bool fHelp); // in rpcdump.cpp
 extern json_spirit::Value importprivkey(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value dumpwallet(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value importwallet(const json_spirit::Array& params, bool fHelp);
@@ -198,6 +199,7 @@ extern json_spirit::Value gettxout(const json_spirit::Array& params, bool fHelp)
 extern json_spirit::Value verifychain(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getlastsoftcheckpoint(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value dhtput(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value dhtputraw(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value dhtget(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value newpostmsg(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value newdirectmsg(const json_spirit::Array& params, bool fHelp);
